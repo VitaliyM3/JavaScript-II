@@ -74,7 +74,14 @@ console.log(test4);
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  if (list.includes(item) === true) {
+    return cb(true);
+  } else {return cb(false)}
+
 }
+contains('yo-yo', items, function(trueOrFalse) {
+  console.log(trueOrFalse);
+});
 
 /* STRETCH PROBLEM */
 
