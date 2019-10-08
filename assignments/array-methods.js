@@ -81,14 +81,34 @@ console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
+let ticketPriceTotal = runners.reduce(function(value, total) {
+  return value + total.donation;
+}, 0);
+
 console.log(ticketPriceTotal);
+
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1 - We need to send a thank you email to all the donors. Make a list of only the email addresses we need to send the thank you letter to.
+let thankYouEmail = [];
+runners.forEach(function(emails) {
+thankYouEmail.push(emails.email)
+});
 
-// Problem 2
+console.log(thankYouEmail);
 
-// Problem 3
+// Problem 2 - We would like to send a gift to the companyies that donated $200 or more. Makes a list of all the top donors
+let topDonors = runners.filter(function topDogs(item) {
+  return item.donation >= 200
+});
+
+console.log(topDonors);
+
+// Problem 3 We would like to promote every company that donated on our website. Make a list of all the companies in caps.
+let capsCompanies = runners.map(function caps(item) {
+  return item.company_name.toUpperCase();
+});
+
+console.log(capsCompanies);
